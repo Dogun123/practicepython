@@ -1,6 +1,9 @@
-from flask import Flask,jsonify,request,render_template
+from flask import Flask,jsonify,request,render_template,make_response
+from flask_cors import CORS
 
 app = Flask(__name__,static_url_path='/static')
+CORS(app)
+
 
 @app.route('/')
 def login():
@@ -26,6 +29,10 @@ def numinput():
 def if_test():
     number = int(request.args.get('number_input'))
     return render_template('if.html',value = number)
+
+@app.route('/test', methods=['GET'])
+def test():
+    return make_response(jsonify(success=True),200)
 
 if __name__ == '__main__':
     app.run(debug=True)
