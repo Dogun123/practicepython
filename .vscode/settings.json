@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "liveServer.settings.port": 5501
+=======
+    "python.pythonPath": "C:\\Python38\\python.exe"
+>>>>>>> a0f55d4cfdf8a0ec7fb23bfcd239967fe0ea8581
 }
