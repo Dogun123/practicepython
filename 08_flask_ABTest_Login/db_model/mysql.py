@@ -2,11 +2,11 @@ import pymysql
 
 MYSQL_HOST = 'localhost'
 MYSQL_CONN = pymysql.connect(
-    host = MYSQL_HOST,
+    host=MYSQL_HOST,
     port=3306,
-    user= 'root',
+    user='root',
     passwd='qkrtpdnd123@',
-    db= 'blog_db',
+    db='blog_db',
     charset='utf8'
 )
 

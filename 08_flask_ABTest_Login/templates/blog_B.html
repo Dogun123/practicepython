@@ -53,22 +53,21 @@
       <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
         <div class="col-md-10 px-0">
           <h2 class="display-4 mb-4">
-            <b>내가 풀스택을 익힌 이유</b>
+            <b>내가 풀스택으로 월급 두 배 번 이야기</b>
           </h2>
           <p class="lead my-3">
 
           </p>
           <p class="lead mb-2">
-            {% if user_email != null %} 
-            {{ user_email }} 이메일 주소로 구독중입니다.&nbsp;
-            <a class="btn btn-light" href="/blog/logout" role="button">구독취소</a>
+            {% if user_email != null %}
+            {{ user_email }} 이메일 주소로 구독중입니다.
             {% else %}
             이메일을 남겨주시면, 블로그 연재시 메일로 송부드립니다 &nbsp;
             <form action="/blog/set_email" method="post">
               <div class="form-row">
                 <div class="col">
                   <input type="email" class="form-control" name="user_email">
-                  <input type="hidden" name="blog_id" value="A">
+                  <input type="hidden" name="blog_id" value="B">
                 </div>
                 <div class="col">
                   <button type="submit" class="btn btn-primary">구독</button>
