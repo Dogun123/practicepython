@@ -13,8 +13,9 @@ def set_email():
         print('set_email', request.args.get('user_email'))
         return redirect(url_for('blog.test_blog')) # blog = Blueprint의 이름, test_blog = 재전송할 함수 이름
     else:   
-        print('set_email',request.form['user_email'])
-        user = User.create(request.form['user_email'],'A')
+        #print('set_email',request.form['user_email'])
+        print(request.form['blog_id'])
+        user = User.create(request.form['user_email'],request.form['blog_id'])
         login_user(user,remember=True,duration=datetime.timedelta(days = 365))
         return redirect(url_for('blog.test_blog'))
 
@@ -28,7 +29,9 @@ def logout():
 def test_blog():
     
     if current_user.is_authenticated:
-        return render_template('blog_A.html',user_email=current_user.user_email)
+        webpage_name = BlogSession.get_blog_page(current_user.blog_id)
+        BlogSession.save_session_info(session['client_id'],current_user.user_email,webpage_name)
+        return render_template(webpage_name,user_email=current_user.user_email)
     else:
         webpage_name = BlogSession.get_blog_page()
         BlogSession.save_session_info(session['client_id'],'anonymous',webpage_name)
